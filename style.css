@@ -19,7 +19,7 @@ body::before {
     position: fixed;
     width: 200%;
     height: 200%;
-    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    background: url("Bg.jpg");
     animation: moveStars 80s linear infinite;
     opacity: 0.3;
     z-index: -1;
