@@ -1,0 +1,465 @@
+/* 🔥 RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🌌 BODY */
+body {
+    background: radial-gradient(circle at 20% 20%, #1a1a2e, #000000 70%);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ✨ FLOATING STARS */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    animation: moveStars 80s linear infinite;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@keyframes moveStars {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-600px, -600px); }
+}
+
+/* ✨ GOLD HEADINGS */
+h1, h2, h3 {
+    color: gold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6),
+                 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* 🔝 NAVBAR */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 22px;
+}
+
+/* NAV */
+nav {
+    display: flex;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: gold;
+}
+
+/* 🎬 HERO */
+.hero {
+    margin-top: 70px;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background: url('https://images.unsplash.com/photo-1519741497674-611481863552') no-repeat center/cover;
+    position: relative;
+}
+
+/* overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+}
+
+/* bring text above overlay */
+.hero h2,
+.hero p,
+.hero .btn {
+    position: relative;
+}
+
+/* animation */
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    animation: floatText 3s ease-in-out infinite;
+}
+
+@keyframes floatText {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+.hero p {
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* 🔘 BUTTON */
+.btn {
+    padding: 12px 25px;
+    background: gold;
+    color: black;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: white;
+}
+
+/* 📸 SERVICES */
+.services {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.service-box {
+    background: #111;
+    padding: 25px;
+    margin: 15px auto;
+    border-radius: 10px;
+    max-width: 300px;
+    transition: 0.3s;
+}
+
+.service-box:hover {
+    transform: translateY(-6px);
+    background: #1a1a1a;
+}
+
+/* 🖼️ PORTFOLIO */
+.portfolio {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* ⭐ TESTIMONIAL */
+.testimonials {
+    padding: 60px 20px;
+    background: #111;
+    text-align: center;
+}
+
+/* 🖤 FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    border-top: 1px solid #222;
+    font-size: 13px;
+}
+
+footer a {
+    color: gold;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero h2 {
+        font-size: 26px;
+    }
+
+    .btn {
+        padding: 10px 18px;
+    }
+}
+/* 🖼️ GALLERY GRID */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 30px;
+}
+
+/* 📸 IMAGES */
+.gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.4s;
+}
+
+/* ✨ HOVER EFFECT */
+.gallery img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* 📝 SUBTITLE */
+.subtitle {
+    text-align: center;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.service-card {
+  background: #111;
+  color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.service-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.service-card h2 {
+  padding: 15px;
+}
+
+.service-card p {
+  padding: 0 15px 15px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.service-card .btn {
+  display: block;
+  margin: 10px 15px 20px;
+  padding: 10px;
+  background: gold;
+  color: black;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+/* 🔥 RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* 🌙 BODY */
+body {
+  background: #000;
+  color: white;
+}
+
+/* 🔥 HERO SECTION */
+.hero {
+  height: 80vh;
+  background: url('../images/wed-cover.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  background: rgba(0,0,0,0.5);
+  padding: 15px 25px;
+  border-radius: 10px;
+}
+
+/* 🖼️ GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ✨ SECTION (COMMON STYLE) */
+.section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  margin-bottom: 15px;
+}
+
+.section p {
+  color: #ccc;
+}
+
+/* 🎯 FEATURES */
+.features {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.features li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* 💬 TESTIMONIAL */
+.testimonial {
+  background: #111;
+  padding: 30px;
+  text-align: center;
+  font-style: italic;
+}
+
+.testimonial h4 {
+  margin-top: 10px;
+  font-style: normal;
+}
+
+/* 🚀 CTA */
+.cta {
+  text-align: center;
+  padding: 40px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: gold;
+  color: black;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: orange;
+}
+
+/* 📌 FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  background: #111;
+  color: #aaa;
+}
+
+/* 📱 RESPONSIVE (Mobile) */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .gallery img {
+    height: 200px;
+  }
+}
+.insta-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* 🔥 Each link becomes button */
+.insta-link {
+  display: block;
+  margin: 12px auto;
+  padding: 12px 20px;
+  width: fit-content;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  position: relative;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+/* 🌈 Gradient border */
+.insta-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 40px;
+  border-radius: 40px;
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  z-index: -1;
+}
+
+/* ✨ Hover glow */
+.insta-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(238, 42, 123, 0.6);
+}
+
+/* ❗ REMOVE BLUE LINK COLOR */
+.insta-link:link,
+.insta-link:visited {
+  color: white;
+}
