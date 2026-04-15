@@ -10,14 +10,14 @@
 
 /* 🌙 BODY */
 body {
-  background: url('Bg.jpg') center/cover no-repeat;;
+  background:black;
   color: white;
 }
 
 /* 🔥 HERO SECTION */
 .hero {
   height: 80vh;
-  background:red;
+  background: url('Bg.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
