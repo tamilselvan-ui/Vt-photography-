@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book your order</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .booking-container {
+      max-width: 550px;
+      margin: 40px auto;
+      background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FCF6BA, #AA771C);
+;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      background: black;
+      color: white;
+    }
+
+    label {
+      font-size: 14px;
+      color: black;
+    }
+
+    .checkbox-group {
+      margin: 10px 0;
+    }
+
+    .checkbox-group label {
+      display: block;
+      margin: 5px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: gold;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: orange;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="booking-container">
+  <h1>Book Your Shoot</h1>
+
+  <form id="bookingForm">
+
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <input type="date" id="date"
+placeholder="Eventdate"required>
+    <input type="text" id="location" placeholder="Event Location" required>
+
+    <!-- 💰 Package -->
+    <label>Select Package</label>
+    <select id="package">
+      <option>No idea about package</option>
+      <option>Standard</option>
+      <option>Premium</option>
+    </select>
+
+    <!-- 🎥 Shoot Type -->
+    <label>Shoot Type</label>
+    <select id="shoot">
+      <option>Photography Only</option>
+      <option>Photography + Videography</option>
+      <option>Cinematic Video</option>
+      <option>frame+editing</option>
+      <option>flex+editing </option>
+      <option>album book</option>
+    </select>
+
+    <textarea id="message" placeholder="Additional Details"></textarea>
+
+    <button type="submit">Send via WhatsApp</button>
+
+  </form>
+</div>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let date = document.getElementById("date").value;
+  let location = document.getElementById("location").value;
+  let package = document.getElementById("package").value;
+  let shoot = document.getElementById("shoot").value;
+  let message = document.getElementById("message").value;
+
+  let addons = [];
+  document.querySelectorAll('input[type="checkbox"]:checked').forEach(el => {
+    addons.push(el.value);
+  });
+
+  let whatsappMessage =
+    " Booking Request:%0A" +
+    "Name: " + name + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Date: " + date + "%0A" +
+    "Location: " + location + "%0A" +
+    "Package: " + package + "%0A" +
+    "Shoot: " + shoot + "%0A" +
+    "Add-ons: " + addons.join(", ") + "%0A" +
+    "Details: " + message;
+
+  let whatsappNumber = "9384490973"; // replace your number
+
+  let url = "https://wa.me/" + whatsappNumber + "?text=" + whatsappMessage;
+
+  alert("Opening WhatsApp...");
+  window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>
