@@ -13,22 +13,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ✨ FLOATING STARS */
-body::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background: url("Bg.jpg");
-    animation: moveStars 80s linear infinite;
-    opacity: 0.3;
-    z-index: -1;
-}
 
-@keyframes moveStars {
-    from { transform: translate(0, 0); }
-    to { transform: translate(-600px, -600px); }
-}
 
 /* ✨ GOLD HEADINGS */
 h1, h2, h3 {
